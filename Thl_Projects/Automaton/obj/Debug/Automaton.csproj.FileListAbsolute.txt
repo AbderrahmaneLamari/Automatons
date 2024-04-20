@@ -1,0 +1,6 @@
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\bin\Debug\Automaton.exe.config
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\bin\Debug\Automaton.exe
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\bin\Debug\Automaton.pdb
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\obj\Debug\Automaton.csproj.CoreCompileInputs.cache
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\obj\Debug\Automaton.exe
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\obj\Debug\Automaton.pdb
