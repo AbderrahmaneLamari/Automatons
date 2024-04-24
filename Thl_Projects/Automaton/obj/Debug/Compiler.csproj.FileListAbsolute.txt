@@ -1,0 +1,7 @@
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\bin\Debug\Compiler.exe.config
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\bin\Debug\Compiler.exe
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\bin\Debug\Compiler.pdb
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\obj\Debug\Compiler.csproj.AssemblyReference.cache
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\obj\Debug\Compiler.csproj.CoreCompileInputs.cache
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\obj\Debug\Compiler.exe
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\obj\Debug\Compiler.pdb
