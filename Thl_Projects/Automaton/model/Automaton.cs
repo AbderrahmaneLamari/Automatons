@@ -24,6 +24,7 @@ namespace Compiler.model
             alphabet = new List<string>();
             allStates = new List<int>();
             finalStates = new List<int>();
+
         }  //The identity constructor
         public Automaton(int initialState, List<int> finalStates, List<int> allStates, List<string> alphabet) : this()
         {
@@ -35,7 +36,13 @@ namespace Compiler.model
 
             transitions = new List<int>[allStates.Count, alphabet.Count];
 
-
+            for (int i = 0; i < allStates.Count; i++)
+            {
+                for (int j = 0; j < alphabet.Count; j++)
+                {
+                    transitions[i, j] = new List<int>(); // Initialization of all cells with a List<int>
+                }
+            }
         }
 
 
@@ -92,22 +99,6 @@ namespace Compiler.model
             {
                 throw new ArgumentOutOfRangeException("character", "character is not defined.");
             }
-
-            if (objectIsInit)
-            {
-                transitions = new List<int>[allStates.Count, alphabet.Count]; // The transition table, just like school!  
-                objectIsInit = false;
-
-                for (int i = 0; i < allStates.Count; i++)
-                {
-                    for (int j = 0; j < alphabet.Count; j++)
-                    {
-                        transitions[i, j] = new List<int>(); // Initialization of all cells with a List<int>
-                    }
-                }
-            }
-
-
 
                 transitions[stateIndex, characterIndex].Add(transition.EndState);
             

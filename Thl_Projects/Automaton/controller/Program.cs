@@ -220,28 +220,60 @@ namespace Compiler.controller
                             case 8: // printing the automaton
 
                                 View.Clear();
+                                List<int>[,] t = wordValidator.Transitions;
 
-                                Console.WriteLine("Initial state: " + initialState);
+                                Console.Write("     |");
+                                for(int i = 0; i < alphabet.Count; i++)
+                                {
+                                    Console.Write("|  " + alphabet[i] + "  ");
+                                }
+                                Console.Write("|");
                                 Console.WriteLine();
 
-                                l = wordValidator.GetTransitions();
-                                View.DisplayPrompt("Automaton States: ");
-                                for(int i = 1; i <= finitestates.Count; i++) // Printin the states
+                                for (int n = 0; n < t.GetLength(1) + 1; n++)
                                 {
-                                    Console.WriteLine("-> " + i);
+                                    Console.Write("------");
                                 }
+                                Console.Write("--");
+                                Console.WriteLine();
 
-                                View.DisplayPrompt("Final states: ");
-                                for(int i = 0; i < finalStates.Count; i++)
+                                for (int i = 0; i < t.GetLength(0); i++)
                                 {
-                                    Console.WriteLine("-> " + finalStates[i]);
-                                }
+                                    if(i+1 == initialState)
+                                    {
+                                        Console.Write("-> " + (i + 1) + " ");
+                                    }
+                                    else if(finalStates.Contains(i + 1))
+                                    {
+                                        Console.Write(" |" + (i + 1) + "| ");
+                                    }
+                                    else
+                                    {
+                                        Console.Write("  " + (i + 1) + "  ");
+                                    }
+                                    Console.Write("|");
+                                    
+                                    
+                                    for(int j = 0; j < t.GetLength(1); j++)
+                                    {
+                                        if (t[i, j].Count == 0)
+                                        {
+                                            Console.Write("|  " + "/" + "  ");
+                                        }
+                                        else
+                                        {
+                                            Console.Write("|  " + t[i, j][0] + "  ");
+                                        }
+                                    }
 
-                                View.DisplayPrompt("Transitions: ");
-
-                                for(int i = 0; i < l.Count; i++)
-                                {
-                                    Console.WriteLine(l[i].StartState + " x " + l[i].TransitionCharacter + " -> " + l[i].EndState);
+                                    Console.Write("|");
+                                    Console.WriteLine();
+                                    for (int n = 0; n < t.GetLength(1) + 1; n++)
+                                    {
+                                        Console.Write("------");
+                                    }
+                                    Console.Write("-");
+                                    Console.WriteLine();
                                 }
 
                                 Console.ReadKey();
