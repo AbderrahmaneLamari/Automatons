@@ -23,18 +23,18 @@ namespace Compiler.controller
 
             View.DisplayPrompt("Enter the number of states: ");
             int numberOfstates = View.ReadInt();
-            View.DisplayPrompt("Ehter the states: ");
             for(int i = 0; i < numberOfstates; i++)
             {
-                finitestates.Add(View.ReadInt());
+                finitestates.Add(i + 1);
             }
 
             View.DisplayPrompt("Enter the number of final states: ");
             int numberOfFinalStates = View.ReadInt();
-            View.DisplayPrompt("Enter the final states: ");
+            
 
             for(int i = 0; i < numberOfFinalStates; i++)
             {
+                View.DisplayPrompt("Enter final state: ");
                 finalStates.Add(View.ReadInt());
             }
 
@@ -43,10 +43,11 @@ namespace Compiler.controller
 
             View.DisplayPrompt("Enter the number of characters in the alphabet: ");
             int numberOfCharacters = View.ReadInt();
-            View.DisplayPrompt("Enter the characters: ");
+            
 
             for(int i = 0; i < numberOfCharacters; i++)
             {
+                View.DisplayPrompt("Enter the character: ");
                 alphabet.Add(View.ReadString());
             }
             wordValidator = new Automaton(initialState, finalStates, finitestates, alphabet);
@@ -63,7 +64,7 @@ namespace Compiler.controller
             for (int i = 0; i < numberOftransitions; i++)
             {
                 View.Clear();
-                View.DisplayPrompt("SCF No: " + (i + 1));
+                View.DisplayPrompt("S x C -> F : No. " + (i + 1));
 
                 s = View.ReadInt();
                 c = View.ReadString();
@@ -98,7 +99,8 @@ namespace Compiler.controller
                                        "4: remove alphabet\n " +
                                        "5: add transition\n " +
                                        "6: remove transition\n " +
-                                       "7: finalize:");
+                                       "7: finalize \n "
+                                       +"8: Print the automaton ");
 
                     choice = View.ReadInt();
 
@@ -163,7 +165,7 @@ namespace Compiler.controller
                                 for (int i = 0; i < numberOftransitions; i++)
                                 {
                                     View.Clear();
-                                    View.DisplayPrompt("SCF No: " + (i+1));
+                                    View.DisplayPrompt("S x C -> F : No. " + (i+1));
 
                                     s = View.ReadInt();
                                     c = View.ReadString();
@@ -214,6 +216,35 @@ namespace Compiler.controller
                                     wordValidator.AssignTransition(l[i]);
                                 }
                                 
+                                break;
+                            case 8: // printing the automaton
+
+                                View.Clear();
+
+                                Console.WriteLine("Initial state: " + initialState);
+                                Console.WriteLine();
+
+                                l = wordValidator.GetTransitions();
+                                View.DisplayPrompt("Automaton States: ");
+                                for(int i = 1; i <= finitestates.Count; i++) // Printin the states
+                                {
+                                    Console.WriteLine("-> " + i);
+                                }
+
+                                View.DisplayPrompt("Final states: ");
+                                for(int i = 0; i < finalStates.Count; i++)
+                                {
+                                    Console.WriteLine("-> " + finalStates[i]);
+                                }
+
+                                View.DisplayPrompt("Transitions: ");
+
+                                for(int i = 0; i < l.Count; i++)
+                                {
+                                    Console.WriteLine(l[i].StartState + " x " + l[i].TransitionCharacter + " -> " + l[i].EndState);
+                                }
+
+                                Console.ReadKey();
                                 break;
                         }
 
