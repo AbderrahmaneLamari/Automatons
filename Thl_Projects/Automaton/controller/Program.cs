@@ -13,7 +13,7 @@ namespace Compiler.controller
 
             Automaton wordValidator; // it only check if word are in a language. Yeah it's only an analyser.
             Transition transition;
-            List<int> allStates = new List<int>();
+            List<int> finitestates = new List<int>();
             List<int> finalStates = new List<int>();
             List<string> alphabet = new List<string>();
             Menu mainMenu = new Menu();
@@ -23,14 +23,15 @@ namespace Compiler.controller
 
             View.DisplayPrompt("Enter the number of states: ");
             int numberOfstates = View.ReadInt();
-
+            View.DisplayPrompt("Ehter the states: ");
             for(int i = 0; i < numberOfstates; i++)
             {
-                allStates.Add(View.ReadInt());
+                finitestates.Add(View.ReadInt());
             }
 
             View.DisplayPrompt("Enter the number of final states: ");
             int numberOfFinalStates = View.ReadInt();
+            View.DisplayPrompt("Enter the final states: ");
 
             for(int i = 0; i < numberOfFinalStates; i++)
             {
@@ -42,12 +43,13 @@ namespace Compiler.controller
 
             View.DisplayPrompt("Enter the number of characters in the alphabet: ");
             int numberOfCharacters = View.ReadInt();
+            View.DisplayPrompt("Enter the characters: ");
 
             for(int i = 0; i < numberOfCharacters; i++)
             {
                 alphabet.Add(View.ReadString());
             }
-            wordValidator = new Automaton(initialState, finalStates, allStates, alphabet);
+            wordValidator = new Automaton(initialState, finalStates, finitestates, alphabet);
 
             View.DisplayPrompt("Enter the number of transitions: ");
 
@@ -60,13 +62,15 @@ namespace Compiler.controller
             string c;
             for (int i = 0; i < numberOftransitions; i++)
             {
-                View.DisplayPrompt("SCF");
+                View.Clear();
+                View.DisplayPrompt("SCF No: " + (i + 1));
 
                 s = View.ReadInt();
                 c = View.ReadString();
                 e = View.ReadInt();
                 transition = new Transition(s,e,c);
                 wordValidator.AssignTransition(transition);
+                
             }
             
 
@@ -100,30 +104,30 @@ namespace Compiler.controller
 
                         switch (choice)
                         {
-                            case 1:
+                            case 1: // Adding a state
 
                                 View.DisplayPrompt("Enter the number of new states: ");
                                 numberOfstates = View.ReadInt();
 
                                 for (int i = 0; i < numberOfstates; i++)
                                 {
-                                    allStates.Add(View.ReadInt());
+                                    finitestates.Add(View.ReadInt());
                                 }
                                 break;
-                            case 2:
+                            case 2: // remove states
                                 View.DisplayPrompt("Enter the number of states to delete: ");
                                 numberOfstates = View.ReadInt();
 
                                 for (int i = 0; i < numberOfstates; i++)
                                 {
-                                    if (!allStates.Remove(View.ReadInt()))
+                                    if (!finitestates.Remove(View.ReadInt()))
                                     {
                                         View.DisplayPrompt("The state doesn't exist.");
                                     }
                                 }
                                 break;
 
-                            case 3:
+                            case 3: // add alphabet
                                 View.DisplayPrompt("Enter the number of new characters in the alphabet: ");
                                 numberOfCharacters = View.ReadInt();
 
@@ -133,7 +137,7 @@ namespace Compiler.controller
                                 }
 
                                 break;
-                            case 4:
+                            case 4: // remove alphabet
                                 View.DisplayPrompt("Enter the number of characters to delelte: ");
                                 numberOfCharacters = View.ReadInt();
 
@@ -145,10 +149,10 @@ namespace Compiler.controller
                                     }
                                 }
                                 break;
-                            case 5:
+                            case 5: // Add transitions
 
                                 l = wordValidator.GetTransitions();
-
+                            
                                 View.DisplayPrompt("Enter the number of new transitions: ");
                                 numberOftransitions = View.ReadInt();
 
@@ -158,22 +162,23 @@ namespace Compiler.controller
 
                                 for (int i = 0; i < numberOftransitions; i++)
                                 {
-                                    View.DisplayPrompt("SCF " + i);
+                                    View.Clear();
+                                    View.DisplayPrompt("SCF No: " + (i+1));
 
                                     s = View.ReadInt();
                                     c = View.ReadString();
                                     e = View.ReadInt();
                                     transition = new Transition(s, e, c);
                                     l.Add(transition);
-                                    View.Clear();
+                                    
                                 }
 
                                 break;
-                            case 6:
+                            case 6: // remove transitions.
                                 l = wordValidator.GetTransitions();
 
 
-                                View.DisplayPrompt("Enter the number of  transitions tp delete: ");
+                                View.DisplayPrompt("Enter the number of  transitions to delete: ");
                                 numberOftransitions = View.ReadInt();
 
                                 View.DisplayPrompt("Enter non-zero or negative start states, non-zero or less than -1 final states, and no epsilon.");
@@ -200,9 +205,9 @@ namespace Compiler.controller
                                 }
 
                                 break;
-                            case 7: // finalizing
+                            case 7: // finalizing and reinitializing the automaton
 
-                                wordValidator = new Automaton(initialState, finalStates, allStates, alphabet);
+                                wordValidator = new Automaton(initialState, finalStates, finitestates, alphabet);
 
                                 for (int i = 0; i < l.Count; i++)
                                 {

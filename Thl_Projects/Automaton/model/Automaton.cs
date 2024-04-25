@@ -11,6 +11,7 @@ namespace Compiler.model
     class Automaton
     {
         private bool objectIsInit = false;
+
         private int initialState;
         private List<int> finalStates;
         private List<int> allStates;
@@ -43,23 +44,7 @@ namespace Compiler.model
             get { return transitions; }
         } // public property
 
-        public void RefreshAutomaton(List<Transition> transitionList)
-        {
 
-            this.transitions = new List<int>[allStates.Count, alphabet.Count];
-            foreach(Transition tr in transitionList)
-            {
-                try
-                {
-                    AssignTransition(tr);
-                }
-                catch(IndexOutOfRangeException)
-                {
-                    continue;
-                }
-                
-            }
-        }
         public void AssignTransition(int state, string character, int resulatantState)
         {
 
@@ -127,7 +112,7 @@ namespace Compiler.model
                 transitions[stateIndex, characterIndex].Add(transition.EndState);
             
         }
-
+        
         public bool RemoveTransition(Transition transition)
         {
             if (null == transition)
@@ -166,7 +151,7 @@ namespace Compiler.model
                 transitions[stateIndex, charIndex].Remove(transition.EndState);
                 return true;
             }
-        }
+        } // NOT USED
 
         public List<Transition> GetTransitions()
         {
@@ -174,13 +159,13 @@ namespace Compiler.model
             Transition trans;
 
             
-            for (int i = 0; i < allStates.Count; i++)
+            for (int i = 0; i < transitions.GetLength(0); i++)
             {
-                for (int j = 0; j < alphabet.Count; j++)
+                for (int j = 0; j < transitions.GetLength(1); j++)
                 {
-                    if (0 == transitions[i, j].Count) { continue; } // skipping the empty cells
+                    if (0 == this.transitions[i, j].Count) { continue; } // skipping the empty cells
 
-                    for (int k = 0; k < transitions[i, j].Count; k++)
+                    for (int k = 0; k < this.transitions[i, j].Count; k++)
                     {
                         
                         trans = new Transition(allStates[i], transitions[i, j][k], alphabet[j]); // This is nasty to say the least, O(n^3), eww.
@@ -212,7 +197,7 @@ namespace Compiler.model
                 this.alphabet.Add(symbol);
                 return true;
             }
-        } // assinging words one by one
+        } // NOT USED
         public bool AssignAlphabet(List<string> alphabet) { 
             
             if(null == alphabet)
@@ -225,7 +210,7 @@ namespace Compiler.model
                 return true;
             }
             
-        }// assiging the whole language at once.
+        }// NOT USED
 
         public bool AssignInitialState(int state)
         {
@@ -243,7 +228,7 @@ namespace Compiler.model
             initialState = state;
             return true;
 
-        }
+        } // NOT USED
         public bool AddState(int state)
         {
             if ( 0 >= state)
@@ -258,7 +243,7 @@ namespace Compiler.model
 
             allStates.Add(state);
             return true;
-        }
+        } // NOT USED
 
         public bool AddFinalState(int state)
         {
@@ -274,7 +259,7 @@ namespace Compiler.model
 
             finalStates.Add(state);
             return true;
-        }
+        } //  NOT USED
 
         public bool ReplaceInitialState(int state)
         {
@@ -290,7 +275,7 @@ namespace Compiler.model
 
             initialState = state;
             return true;
-        }
+        }// NOT USED
 
         //The only important method in the whole class.
         public bool ValidateWord(string word)
