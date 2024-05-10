@@ -1,0 +1,13 @@
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\GraphicalAutomaton\obj\Debug\GraphicalAutomaton.csproj.AssemblyReference.cache
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\GraphicalAutomaton\obj\Debug\GraphicalAutomaton.MainWindow.resources
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\GraphicalAutomaton\obj\Debug\GraphicalAutomaton.Properties.Resources.resources
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\GraphicalAutomaton\obj\Debug\GraphicalAutomaton.csproj.GenerateResource.cache
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\GraphicalAutomaton\obj\Debug\GraphicalAutomaton.csproj.CoreCompileInputs.cache
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\GraphicalAutomaton\bin\Debug\GraphicalAutomaton.exe.config
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\GraphicalAutomaton\bin\Debug\GraphicalAutomaton.exe
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\GraphicalAutomaton\bin\Debug\GraphicalAutomaton.pdb
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\GraphicalAutomaton\obj\Debug\GraphicalAutomaton.exe
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\GraphicalAutomaton\obj\Debug\GraphicalAutomaton.pdb
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\GraphicalAutomaton\obj\Debug\GraphicalAutomaton.csproj.CopyComplete
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\GraphicalAutomaton\bin\Debug\RecognitionSystems.dll
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\GraphicalAutomaton\bin\Debug\RecognitionSystems.pdb

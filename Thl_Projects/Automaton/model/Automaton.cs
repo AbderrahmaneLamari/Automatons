@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Compiler.model
 {
@@ -34,6 +32,9 @@ namespace Compiler.model
             this.alphabet = alphabet;
             objectIsInit = true;
 
+            
+
+
             transitions = new List<int>[allStates.Count, alphabet.Count];
 
             for (int i = 0; i < allStates.Count; i++)
@@ -51,6 +52,7 @@ namespace Compiler.model
             get { return transitions; }
         } // public property
 
+        
 
         public void AssignTransition(int state, string character, int resulatantState)
         {
@@ -87,6 +89,7 @@ namespace Compiler.model
         }
         public void AssignTransition(Transition transition) 
         {
+            if(transition == null) { return; }
             int stateIndex = allStates.IndexOf(transition.StartState);
             int characterIndex = alphabet.IndexOf(transition.TransitionCharacter);
 
@@ -129,7 +132,7 @@ namespace Compiler.model
                 return false; // transition non existatnt
             }
             
-            if (0 == transitions[stateIndex, charIndex].Count)
+            if (1 == transitions[stateIndex, charIndex].Count)
             {
                 // Only one state, removing it, and replacing it with null transition.
                 transitions[stateIndex, charIndex].Remove(transition.EndState);
@@ -143,7 +146,40 @@ namespace Compiler.model
                 return true;
             }
         } // NOT USED
+        public bool RemoveState(int state)
+        {
+            if(0 >= state) { return false; }
 
+            if (!allStates.Contains(state)) { return false; }
+
+            
+
+            List<Transition> tList = GetTransitions();
+
+            tList.RemoveAll( t => t.StartState == state  &&  t.EndState == state );
+            RefreshTransitions(tList);
+            allStates.Remove(state);
+
+            return true;
+        }
+
+        public bool RemoveCharacter(string c)
+        {
+
+            if("" == c) { return false; }
+            if(null == c) { return false; }
+
+            if (!alphabet.Contains(c)) { return false; }
+
+            
+            List<Transition> tList = GetTransitions();
+
+            tList.RemoveAll(t => t.TransitionCharacter.Equals(c));
+            RefreshTransitions(tList);
+            alphabet.Remove(c);
+            return true;
+
+        }
         public List<Transition> GetTransitions()
         {
             List<Transition> transList = new List<Transition>();
@@ -248,6 +284,11 @@ namespace Compiler.model
                 return false;
             }
 
+            if (!allStates.Contains(state))
+            {
+                allStates.Add(state);
+            }
+
             finalStates.Add(state);
             return true;
         } //  NOT USED
@@ -264,16 +305,24 @@ namespace Compiler.model
                 return false;
             }
 
-            initialState = state;
+            if (allStates.Contains(state))
+            {
+                initialState = state;
+            }
+            else
+            {
+                allStates.Add(state);
+                initialState = state;
+            }
             return true;
         }// NOT USED
 
         //The only important method in the whole class.
         public bool ValidateWord(string word)
         {
-            if (string.IsNullOrEmpty(word))
+            if (word == null)
             {
-                throw new ArgumentException("Input word cannot be null or empty.");
+                throw new ArgumentException("Input word cannot be null.");
             }
 
             return ValidateWordRecursive(word, 0, initialState);
@@ -311,7 +360,26 @@ namespace Compiler.model
 
             return false; // no path and the word is invalid
         }
+        private void RefreshTransitions(List<Transition> t)
+        {
+            this.transitions = new List<int>[allStates.Count, alphabet.Count];
 
+            int iLength = transitions.GetLength(0);
+            int jLength = transitions.GetLength(1);
+
+            for(int i = 0; i < iLength; i++)
+            {
+                for(int j = 0; j < jLength; j++)
+                {
+                    transitions[i, j] = new List<int>();
+                }
+            }
+
+            foreach(Transition z in t)
+            {
+                AssignTransition(z);
+            }
+        }
 
     }
 }

@@ -5,3 +5,6 @@ C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\ob
 C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\obj\Debug\Compiler.csproj.CoreCompileInputs.cache
 C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\obj\Debug\Compiler.exe
 C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\obj\Debug\Compiler.pdb
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\bin\Debug\RecognitionSystem.dll
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\bin\Debug\RecognitionSystem.pdb
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\Automaton\obj\Debug\Compiler.csproj.CopyComplete

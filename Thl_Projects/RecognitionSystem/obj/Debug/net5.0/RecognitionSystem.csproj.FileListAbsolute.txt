@@ -1,0 +1,12 @@
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\RecognitionSystem\bin\Debug\net5.0\RecognitionSystem.deps.json
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\RecognitionSystem\bin\Debug\net5.0\RecognitionSystem.dll
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\RecognitionSystem\bin\Debug\net5.0\ref\RecognitionSystem.dll
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\RecognitionSystem\bin\Debug\net5.0\RecognitionSystem.pdb
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\RecognitionSystem\obj\Debug\net5.0\RecognitionSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\RecognitionSystem\obj\Debug\net5.0\RecognitionSystem.AssemblyInfoInputs.cache
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\RecognitionSystem\obj\Debug\net5.0\RecognitionSystem.AssemblyInfo.cs
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\RecognitionSystem\obj\Debug\net5.0\RecognitionSystem.csproj.CoreCompileInputs.cache
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\RecognitionSystem\obj\Debug\net5.0\RecognitionSystem.dll
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\RecognitionSystem\obj\Debug\net5.0\ref\RecognitionSystem.dll
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\RecognitionSystem\obj\Debug\net5.0\RecognitionSystem.pdb
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\RecognitionSystem\obj\Debug\net5.0\RecognitionSystem.csproj.AssemblyReference.cache

@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compiler", "Automaton\Compiler.csproj", "{1DAC47FA-E804-4CA4-9C9A-2C5106D26F8A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphicalAutomaton", "GraphicalAutomaton\GraphicalAutomaton.csproj", "{475DD03B-511C-40B4-90C5-C2297BF5AADE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecognitionSystems", "RecognitionSystems\RecognitionSystems.csproj", "{B3ED9B8D-23A7-40A3-911C-B2041EEDAC4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{1DAC47FA-E804-4CA4-9C9A-2C5106D26F8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DAC47FA-E804-4CA4-9C9A-2C5106D26F8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DAC47FA-E804-4CA4-9C9A-2C5106D26F8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{475DD03B-511C-40B4-90C5-C2297BF5AADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{475DD03B-511C-40B4-90C5-C2297BF5AADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{475DD03B-511C-40B4-90C5-C2297BF5AADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{475DD03B-511C-40B4-90C5-C2297BF5AADE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3ED9B8D-23A7-40A3-911C-B2041EEDAC4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3ED9B8D-23A7-40A3-911C-B2041EEDAC4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3ED9B8D-23A7-40A3-911C-B2041EEDAC4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3ED9B8D-23A7-40A3-911C-B2041EEDAC4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

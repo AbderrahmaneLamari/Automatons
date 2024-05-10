@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Compiler.view;
-using Compiler.model;
+using RecognitionSystems;
+
 
 namespace Compiler.controller
 {
@@ -11,7 +12,7 @@ namespace Compiler.controller
         static void Main(string[] args)
         {
 
-            Automaton wordValidator; // it only check if word are in a language. Yeah it's only an analyser.
+            FiniteStateMachine wordValidator; // it only check if word are in a language. Yeah it's only an analyser.
             Transition transition;
             List<int> finitestates = new List<int>();
             List<int> finalStates = new List<int>();
@@ -50,7 +51,7 @@ namespace Compiler.controller
                 View.DisplayPrompt("Enter the character: ");
                 alphabet.Add(View.ReadString());
             }
-            wordValidator = new Automaton(initialState, finalStates, finitestates, alphabet);
+            wordValidator = new FiniteStateMachine(initialState, finalStates, finitestates, alphabet);
 
             View.DisplayPrompt("Enter the number of transitions: ");
 
@@ -92,7 +93,7 @@ namespace Compiler.controller
                     {
 
                     
-                    View.DisplayPrompt("Choose What you want to change: " +
+                    View.DisplayPrompt("Choose What you want to change: \n" +
                                        "1: add states\n " +
                                        "2: remove states\n " +
                                        "3: add alphabet\n " +
@@ -122,7 +123,7 @@ namespace Compiler.controller
 
                                 for (int i = 0; i < numberOfstates; i++)
                                 {
-                                    if (!finitestates.Remove(View.ReadInt()))
+                                    if (!wordValidator.RemoveState(View.ReadInt()))
                                     {
                                         View.DisplayPrompt("The state doesn't exist.");
                                     }
@@ -145,7 +146,7 @@ namespace Compiler.controller
 
                                 for (int i = 0; i < numberOfCharacters; i++)
                                 {
-                                    if (!alphabet.Remove(View.ReadString()))
+                                    if (!wordValidator.RemoveCharacter(View.ReadString()))
                                     {
                                         View.DisplayPrompt("The character doesn't exist. This char is skipped, finish and retry.");
                                     }
@@ -209,7 +210,7 @@ namespace Compiler.controller
                                 break;
                             case 7: // finalizing and reinitializing the automaton
 
-                                wordValidator = new Automaton(initialState, finalStates, finitestates, alphabet);
+                                wordValidator = new FiniteStateMachine(initialState, finalStates, finitestates, alphabet);
 
                                 for (int i = 0; i < l.Count; i++)
                                 {
@@ -232,9 +233,9 @@ namespace Compiler.controller
 
                                 for (int n = 0; n < t.GetLength(1) + 1; n++)
                                 {
-                                    Console.Write("------");
+                                    Console.Write("======");
                                 }
-                                Console.Write("--");
+                                Console.Write("=");
                                 Console.WriteLine();
 
                                 for (int i = 0; i < t.GetLength(0); i++)

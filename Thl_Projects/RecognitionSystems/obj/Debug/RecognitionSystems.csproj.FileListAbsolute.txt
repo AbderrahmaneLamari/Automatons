@@ -1,0 +1,5 @@
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\RecognitionSystems\bin\Debug\RecognitionSystems.dll
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\RecognitionSystems\bin\Debug\RecognitionSystems.pdb
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\RecognitionSystems\obj\Debug\RecognitionSystems.csproj.CoreCompileInputs.cache
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\RecognitionSystems\obj\Debug\RecognitionSystems.dll
+C:\Users\User2\Desktop\School\TP Classes\2023-2024\THL\Thl_Projects\RecognitionSystems\obj\Debug\RecognitionSystems.pdb
