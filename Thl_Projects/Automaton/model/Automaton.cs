@@ -17,6 +17,7 @@ namespace Compiler.model
         private List<int> t = new List<int>();
 
         public List<int>[,] transitions; // 2d array
+
         public Automaton()
         {
             alphabet = new List<string>();

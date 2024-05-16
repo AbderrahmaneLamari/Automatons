@@ -29,6 +29,7 @@ namespace GraphicalAutomaton
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.automatonFrom = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.setTransitionsBtn = new System.Windows.Forms.Button();
@@ -47,14 +48,19 @@ namespace GraphicalAutomaton
             this.label1 = new System.Windows.Forms.Label();
             this.usagePage = new System.Windows.Forms.TabPage();
             this.canvas = new System.Windows.Forms.PictureBox();
+            this.canvasOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.saveCanvasOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshScreen = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.validateWordBtn = new System.Windows.Forms.Button();
             this.inputWordTxt = new System.Windows.Forms.TextBox();
+            this.saveCanvas = new System.Windows.Forms.SaveFileDialog();
             this.automatonFrom.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.transitionTable)).BeginInit();
             this.usagePage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
+            this.canvasOptions.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,10 +68,11 @@ namespace GraphicalAutomaton
             // 
             this.automatonFrom.Controls.Add(this.tabPage1);
             this.automatonFrom.Controls.Add(this.usagePage);
-            this.automatonFrom.Location = new System.Drawing.Point(4, 1);
+            this.automatonFrom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.automatonFrom.Location = new System.Drawing.Point(0, 0);
             this.automatonFrom.Name = "automatonFrom";
             this.automatonFrom.SelectedIndex = 0;
-            this.automatonFrom.Size = new System.Drawing.Size(846, 476);
+            this.automatonFrom.Size = new System.Drawing.Size(852, 479);
             this.automatonFrom.TabIndex = 0;
             // 
             // tabPage1
@@ -84,7 +91,7 @@ namespace GraphicalAutomaton
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(838, 450);
+            this.tabPage1.Size = new System.Drawing.Size(844, 453);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Form - Create Automaton";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -138,7 +145,7 @@ namespace GraphicalAutomaton
             this.transitionTable.Enabled = false;
             this.transitionTable.Location = new System.Drawing.Point(485, 47);
             this.transitionTable.Name = "transitionTable";
-            this.transitionTable.Size = new System.Drawing.Size(347, 368);
+            this.transitionTable.Size = new System.Drawing.Size(347, 397);
             this.transitionTable.TabIndex = 13;
             // 
             // start_state
@@ -209,23 +216,50 @@ namespace GraphicalAutomaton
             this.usagePage.Location = new System.Drawing.Point(4, 22);
             this.usagePage.Name = "usagePage";
             this.usagePage.Padding = new System.Windows.Forms.Padding(3);
-            this.usagePage.Size = new System.Drawing.Size(838, 450);
+            this.usagePage.Size = new System.Drawing.Size(844, 453);
             this.usagePage.TabIndex = 1;
             this.usagePage.Text = "Validate Words";
             this.usagePage.UseVisualStyleBackColor = true;
             // 
             // canvas
             // 
-            this.canvas.Location = new System.Drawing.Point(212, 6);
+            this.canvas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.canvas.ContextMenuStrip = this.canvasOptions;
+            this.canvas.Location = new System.Drawing.Point(221, 3);
             this.canvas.Name = "canvas";
-            this.canvas.Size = new System.Drawing.Size(620, 438);
+            this.canvas.Size = new System.Drawing.Size(620, 447);
             this.canvas.TabIndex = 3;
             this.canvas.TabStop = false;
-            this.canvas.Click += new System.EventHandler(this.canvas_Click);
             this.canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.canvas_Paint);
             this.canvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseDown);
             this.canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseMove);
             this.canvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseUp);
+            // 
+            // canvasOptions
+            // 
+            this.canvasOptions.AllowDrop = true;
+            this.canvasOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveCanvasOption,
+            this.refreshScreen});
+            this.canvasOptions.Name = "canvasOptions";
+            this.canvasOptions.Size = new System.Drawing.Size(152, 48);
+            this.canvasOptions.Text = "See Options...";
+            // 
+            // saveCanvasOption
+            // 
+            this.saveCanvasOption.Name = "saveCanvasOption";
+            this.saveCanvasOption.Size = new System.Drawing.Size(180, 22);
+            this.saveCanvasOption.Text = "Save";
+            this.saveCanvasOption.Click += new System.EventHandler(this.saveCanvasOption_Click);
+            // 
+            // refreshScreen
+            // 
+            this.refreshScreen.Name = "refreshScreen";
+            this.refreshScreen.Size = new System.Drawing.Size(151, 22);
+            this.refreshScreen.Text = "Refresh Screen";
+            this.refreshScreen.Click += new System.EventHandler(this.refreshScreen_Click);
             // 
             // panel1
             // 
@@ -238,6 +272,7 @@ namespace GraphicalAutomaton
             // 
             // validateWordBtn
             // 
+            this.validateWordBtn.ContextMenuStrip = this.canvasOptions;
             this.validateWordBtn.Location = new System.Drawing.Point(68, 97);
             this.validateWordBtn.Name = "validateWordBtn";
             this.validateWordBtn.Size = new System.Drawing.Size(107, 23);
@@ -262,13 +297,13 @@ namespace GraphicalAutomaton
             this.Controls.Add(this.automatonFrom);
             this.Name = "MainWindow";
             this.Text = "Graphical Automaton";
-            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.automatonFrom.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.transitionTable)).EndInit();
             this.usagePage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
+            this.canvasOptions.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -299,6 +334,10 @@ namespace GraphicalAutomaton
         private System.Windows.Forms.TextBox inputWordTxt;
         private System.Windows.Forms.PictureBox canvas;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ContextMenuStrip canvasOptions;
+        private System.Windows.Forms.ToolStripMenuItem saveCanvasOption;
+        private System.Windows.Forms.ToolStripMenuItem refreshScreen;
+        private System.Windows.Forms.SaveFileDialog saveCanvas;
     }
 }
 
